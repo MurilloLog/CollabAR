@@ -6,9 +6,9 @@
 </div>
 
 ## Overview
-This repository outlines the design, development, and implementation of a framework to simply the deployment and setup of co-located collaborative Augmented Reality (AR) experiences on mobile devices. It uses a centralized client-server architecture, with a single PC acting as a local server to handle data communication and synchronization across multiple mobile devices. This framework eliminates the reliance on cloud anchor services or third-party platforms that often come with restrictive limitations.
+This repository outlines the design, development, and implementation of a framework to simply the deployment and setup of colocated collaborative Augmented Reality (AR) experiences on mobile devices (currently support ARCore supported devices). It uses a centralized client-server architecture, with a single PC acting as a local server to handle data communication and synchronization across multiple connected devices. This framework toolkit is designed to eliminate the reliance on cloud anchor services or third-party platforms that often come with restrictive limitations.
 
-The project is organized into two main sections: the first covers the architecture and technical configuration of the local server (_Server folder_), describing the components and processes required to ensure its functionality; the second focuses on the design (_App folder_), evaluation, and validation of the application, identifying issues encountered during development, analyzing potential solutions, and proposing improvements for future iterations.
+The project is organized into two main sections: the first covers the architecture and technical configuration of the local server (_Server folder_), describing the components and processes required to ensure its functionality; the second focuses on the client app (_App folder_), evaluation, and validation of the application, identifying issues encountered during development, analyzing potential solutions, and proposing improvements for future iterations.
 
 ## Please kindly cite our paper as:
 ```
@@ -39,10 +39,10 @@ See [SERVER.md](./Server/README.md) for instructions on how to setting up the Lo
 - **Typegoose**. Library based on mongoose that facilitates the integration of its syntax using Typescript.
 - **MongoDB**. NoSQL database system used to store the objects created in the mobile application.
 - **JSON**. Object notation used for sending messages.
-### App
+### Client App
 See [APP.md](./App/README.md) for instructions on how to setting up the App from source and a list of supported platforms.
-- **Unity**. Cross-platform game engine used to create the mobile app.
+- **Unity**. Cross-platform game engine used to create the mobile application.
 - **ARCore**. Platform used for building augmented reality experiences on Android devices.
-- **.NET**. Platform used for message control between the server and the mobile application.
+- **.NET**. Platform used for message control between the server and the client application.
 
 
