@@ -37,51 +37,95 @@ You'll need:
 ✔ Refer to [SERVER.md](./Server/README.md) and [APP.md](./App/README.md) for setup instructions.
 
 ### Step 1: Get the Code
-```bash
-git clone https://github.com/MurilloLog/CollabAR
-cd CollabAR
-```
+1. **Clone the repository** (download the project):
+  ```bash
+  git clone https://github.com/MurilloLog/CollabAR.git
+  ```
+
+2. **Navigate into the project folder**:
+  ```bash
+  cd CollabAR
+  ```
 
 ### Step 2: Launch the Server
-1. **Open two terminal windows** in the `Server/` folder
-2.  **In first terminal** (Database):
+1. **Open two terminal windows** and navigate both to the `Server/` folder:
+  ```bash
+  cd Server
+  ```
+2.  **In first terminal (Database-MongoDB)**
+- Start MongoDB
    ```bash
    mongod
    ```
-→ Look for "waiting for connections" message.
+   ✅ Successful confirmation
 
-**In second terminal** (Application):
+  Wait for the log message: [initandlisten] Waiting for connections.
+
+3. **In the second Terminal (Application - Node.js)**
+- Install dependencies (**first time only**):
 ```bash
-npm install # First time only
+npm install
+```
+
+- Start the server:
+```bash
 npm start
 ```
-This launches the server.
+✅ Successful confirmation
 
-### Step 3: Set Up the AR App
-1. Open Unity Hub
-2. Add the App/ folder as a project
-3. Build and install on your Android devices
+Look for the message: "Wating for connections..."
+
+⚠️ **Important Notes**:
+
+- Do not close either terminal window while using the application.
+
+- Closing the first terminal (mongod) will shut down the database.
+
+- Closing the second terminal (npm start) will stop the server.
+
+- To stop the servers safely: Press Ctrl + C in each terminal to terminate processes gracefully.
 
 ## 🎨 Using the App
 1. **Connect Devices**:
-   - Point cameras at the same table/floor
-   - Enter the server's IP address (shown when server starts)
-   - Tap "Join"
+  - **Positioning**: Point all device cameras at the **same flat surface** (table/floor).
+  - **Connection**:
+     - Enter the server’s IP:PORT address manually (found in [SERVER.md](./Server/README.md)).
+     - Tap "Join" to sync devices.
+     - Wait for all players
+  - **Verification**:
+    - Check terminal logs for "Client [IP] connected" confirmation
 
 2. **Start Drawing**:
-  - Choose colors from the palette
-  - Draw in the air - others will see your draw when you finish it!
-  - Walk around - drawings stay in place
+  - Choose colors from the palette in your app
+  - Draw in the air – your strokes appear when you finish - others will see your drawings
+  - Walk around - drawings stay anchored to their physical location
 
-### ❓ Common Questions
+🔍 System Verification
+
+To confirm the system is operating correctly:
+
+1. **Check the server terminal** (where you ran npm start).
+2. Look for these **key log messages**:
+
+  - ✅ "Connecting to MongoDB..."
+  - ✅ "Successful connection..."
+  - ✅ "Waiting for connections..." 
+
+## ❓ Common Questions
 **Q: Why do devices need to be close together?**
-A: They share the same physical AR space - like looking at the same real painting.
+
+A: Devices need to be close to share the same AR space and use a common reference point from the starting position for accurate synchronization
 
 **Q: Can I use iPhones?**
+
 A: Currently Android-only (ARCore requirement), but iOS support could be added.
 
-**Q: How many users can join?**
-A: Theoretically unlimited, but performance depends on your server.
+**Q: How many users can join simultaneously?**
+
+A. The system supports theoretically unlimited connections, but practical performance depends on:
+- The PC specifications (CPU/RAM)
+- Network conditions (latency and stability)
+- Drawing complexity (size/detail of shared AR content)
 
 ## Please kindly cite our paper as:
 ```
