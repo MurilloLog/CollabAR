@@ -63,9 +63,8 @@ let server = net.createServer((socket) => {
             timer.runAfter(1).then(() => {
                 socket.write(`id: ${id}`, "utf8");
                 player._id = id;
-                player.save(function (err: any) {
-                    if (err) return handleError(err);
-                    // Saved on Mongo DB!
+                player.save().catch((err: any) => {
+                    handleError(err);
                 });
             });
             connected = true;
