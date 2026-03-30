@@ -13,34 +13,36 @@ Perfect for:
 - Collaborative projects
 - AR education tools
 
-## 🧩 Project Components
+## Project Structure
+```
+/CollabAR
+|---- App/        # Includes the mobile application implementation that connects to and interacts with the server framework
+|---- Assets/     # Images and resources used in documentation
+|---- Server/     # Contains the complete architecture and technical configuration for the local server, including all necessary components and operational processes
+|---- README.md   # This documentation file
+```
 
-| Folder | Purpose | What You'll Find There |
-|--------|---------|------------------------|
-| `Server/` | Contains the complete architecture and technical configuration for the local server, including all necessary components and operational processes | Server code, database setup |
-| `App/` | Includes the mobile application implementation that connects to and interacts with the server framework | Unity project, App setup |
-
-
-## 🛠️ Setup Guide
+**Note:** All setup instructions and commands in this guide are designed for Windows using Command Prompt (cmd). If you're using another operating system, please adapt the commands accordingly.
 
 ### Before You Begin
 You'll need:
 
-✔ **Computer**: Windows/Mac/Linux with:
+**Computer**: Windows/Mac/Linux with:
   - Node.js v22.12.0 ([installation guide](https://nodejs.org/en/download))
   - MongoDB 8.0.4 ([installation guide](https://www.mongodb.com/docs/manual/installation/))
+  - Git ([installation guide](https://git-scm.com/))
 
-✔ **Phones**: 2+ Android devices with:
+**Phones**: 2+ Android devices with:
   - ARCore support ([compatibility list](https://developers.google.com/ar/devices))
   - Developer mode enabled
     
-✔ Refer to [SERVER.md](./Server/README.md) and [APP.md](./App/README.md) for further setup instructions.
-
 ### Step 1: Get the Code
-1. **Clone the repository** (download the project):
+1. **Clone the repository** (or download the project as a zip file) as:
   ```bash
   git clone https://github.com/MurilloLog/CollabAR.git
   ```
+
+**If downloading as a ZIP file:** Extract the contents and verify the folder structure matches the Project Structure shown above. Ensure you have a folder named CollabAR/ containing the App/, Assets/, Server/, and README.md files directly inside-not nested within an additional parent folder.
 
 2. **Navigate into the project folder**:
   ```bash
@@ -48,7 +50,9 @@ You'll need:
   ```
 
 ### Step 2: Launch the Server
-1. **Open two terminal windows**: both navigate to the `Server/` folder under the project repo:
+Before starting the server, ensure you have properly configured it and have the applications ready on your devices. Refer to [SERVER.md](./Server/README.md) and [APP.md](./App/README.md) for further setup instructions.
+
+1. **Open two terminal windows** and navigate both to the `Server/` folder:
   ```bash
   cd Server
   ```
@@ -62,7 +66,7 @@ You'll need:
   Wait for the log message: [initandlisten] Waiting for connections.
 
 3. **In the second Terminal (Application - Node.js)**
-- Install dependencies (**for the first time only**):
+- Install dependencies (**first time only**):
 ```bash
 npm install
 ```
