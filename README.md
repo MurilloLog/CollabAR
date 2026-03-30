@@ -34,7 +34,7 @@ You'll need:
   - ARCore support ([compatibility list](https://developers.google.com/ar/devices))
   - Developer mode enabled
     
-✔ Refer to [SERVER.md](./Server/README.md) and [APP.md](./App/README.md) for setup instructions.
+✔ Refer to [SERVER.md](./Server/README.md) and [APP.md](./App/README.md) for further setup instructions.
 
 ### Step 1: Get the Code
 1. **Clone the repository** (download the project):
