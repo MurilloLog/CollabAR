@@ -48,7 +48,7 @@ You'll need:
   ```
 
 ### Step 2: Launch the Server
-1. **Open two terminal windows** and navigate both to the `Server/` folder:
+1. **Open two terminal windows**: both navigate to the `Server/` folder under the project repo:
   ```bash
   cd Server
   ```
@@ -62,7 +62,7 @@ You'll need:
   Wait for the log message: [initandlisten] Waiting for connections.
 
 3. **In the second Terminal (Application - Node.js)**
-- Install dependencies (**first time only**):
+- Install dependencies (**for the first time only**):
 ```bash
 npm install
 ```
