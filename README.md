@@ -15,107 +15,112 @@ Perfect for:
 
 ## Project Structure
 ```
-/CollabAR
-|---- App/        # Includes the mobile application implementation that connects to and interacts with the server framework
-|---- Assets/     # Images and resources used in documentation
-|---- Server/     # Contains the complete architecture and technical configuration for the local server, including all necessary components and operational processes
-|---- README.md   # This documentation file
+CollabAR/ 
+├── App/        # Includes the mobile application implementation that connects to and interacts with the server framework
+├── Assets/     # Images and resources used in documentation
+├── Server/     # Contains the complete architecture and technical configuration for the local server, including all necessary components and operational processes
+└── README.md   # This documentation file
 ```
 
-**Note:** All setup instructions and commands in this guide are designed for Windows using Command Prompt (cmd). If you're using another operating system, please adapt the commands accordingly.
-
-### Before You Begin
-You'll need:
+## Setting workspace
+Before proceeding with the setup steps below, ensure you have the following tools **installed and ready** on your system. While newer versions may work, we recommend using the exact version specified to ensure full compatibility. If you choose a different version, please verify it doesn't introduce breaking changes.
 
 **Computer**: Windows/Mac/Linux with:
-  - Node.js v22.12.0 ([installation guide](https://nodejs.org/en/download))
-  - MongoDB 8.0.4 ([installation guide](https://www.mongodb.com/docs/manual/installation/))
-  - Git ([installation guide](https://git-scm.com/))
+  - Node.js v22.12.0 ([Installation guide](https://nodejs.org/en/about/previous-releases))
+  - MongoDB Community Edition 8.0.4 ([Installation guide](https://www.mongodb.com/docs/manual/installation/))
+  - Git ([Installation guide](https://git-scm.com/))
 
 **Phones**: 2+ Android devices with:
-  - ARCore support ([compatibility list](https://developers.google.com/ar/devices))
-  - Developer mode enabled
-    
+  - ARCore support ([Compatibility list](https://developers.google.com/ar/devices))
+  - Developer mode enabled ([Developer mode](https://developer.android.com/studio/debug/dev-options))
+
+**Note:** All setup instructions and commands in this guide were tested in Windows 11 (25H2) using Command Prompt (cmd). If you're using another operating system or shell, please adapt the commands accordingly.
+
 ### Step 1: Get the Code
-1. **Clone the repository** (or download the project as a zip file) as:
+**Clone the repository** as:
   ```bash
   git clone https://github.com/MurilloLog/CollabAR.git
   ```
 
-**If downloading as a ZIP file:** Extract the contents and verify the folder structure matches the Project Structure shown above. Ensure you have a folder named CollabAR/ containing the App/, Assets/, Server/, and README.md files directly inside-not nested within an additional parent folder.
-
-2. **Navigate into the project folder**:
-  ```bash
-  cd CollabAR
-  ```
+**If you prefer downloading the project as a ZIP file:** Extract the contents and verify the folder structure matches the Project Structure shown above. Ensure you have a folder named CollabAR/ containing the App/, Assets/, Server/, and README.md files directly inside-not nested within an additional parent folder.
 
 ### Step 2: Launch the Server
-Before starting the server, ensure you have properly configured it and have the applications ready on your devices. Refer to [SERVER.md](./Server/README.md) and [APP.md](./App/README.md) for further setup instructions.
+Before starting the server, ensure you have properly [configured it](./Server/README.md) and have the [applications ready](./App/README.md) on your devices.
 
-1. **Open two terminal windows** and navigate both to the `Server/` folder:
+1. **Open two Command Promts** and navigate both to the `Server/` folder:
   ```bash
+  cd CollabAR
   cd Server
   ```
-2.  **In first terminal (Database-MongoDB)**
-- Start MongoDB
+
+2.  **In first terminal (Database-MongoDB)** start MongoDB service as:
    ```bash
    mongod
    ```
-   ✅ Successful confirmation
+  And make sure avoiding to close the command promt. You can verify MongoDB service is working when you receive the log message: *[initandlisten] Waiting for connections*.
 
-  Wait for the log message: [initandlisten] Waiting for connections.
-
-3. **In the second Terminal (Application - Node.js)**
-- Install dependencies (**first time only**):
-```bash
-npm install
-```
-
-- Start the server:
+3. **In the second Terminal (Application-Node.js)** start the server as:
 ```bash
 npm start
 ```
-✅ Successful confirmation
 
-Look for the message: "Wating for connections..."
+Look for the message: *"Wating for connections..."* to check that the server app is running without errors.
 
 ⚠️ **Important Notes**:
 
 - Do not close either terminal window while using the application.
 
-- Closing the first terminal (mongod) will shut down the database.
+- Closing the first terminal *(mongod)* will shut down the database.
 
-- Closing the second terminal (npm start) will stop the server.
+- Closing the second terminal *(npm start)* will stop the server.
 
-- To stop the servers safely: Press Ctrl + C in each terminal to terminate processes gracefully.
+- To stop the servers safely: Press *Ctrl + C* in each terminal to terminate processes gracefully.
 
-## 🎨 Using the App
-1. **Connect Devices**:
-  - **Positioning**: Point all device cameras at the **same flat surface** (table/floor).
-  - **Connection**:
-     - Enter the server’s IP:PORT address manually (found in [SERVER.md](./Server/README.md)).
-     - Tap "Join" to sync devices.
-     - Wait for all players
-  - **Verification**:
-    - Check terminal logs for "Client [IP] connected" confirmation
+## Using the App
 
-2. **Start Drawing**:
-  - Choose colors from the palette in your app
-  - Draw in the air – your strokes appear when you finish - others will see your drawings
-  - Walk around - drawings stay anchored to their physical location
+### 1. Prepare Devices
+**Initial Positioning:** Before launching the app, place all devices side by side, pointing their cameras toward the same flat surface (table or floor). This initial alignment is critical. Any offset at the start will cause spatial synchronization mismatches between devices throughout the entire experience.
 
-🔍 System Verification
+⚠️ **Important:** All devices must be connected to the same Wi-Fi network to communicate with the server.
 
-To confirm the system is operating correctly:
+### 2. Connect to Server
+1. **Enter the server address:** Input the IP address of the computer running the server (the machine where you executed *npm start*). The default port is 8080. 
+**Note:** These parameters can be modified or automated-refer to [Server.md](./Server/README.md) for configuration details.
 
-1. **Check the server terminal** (where you ran npm start).
-2. Look for these **key log messages**:
+2. **Tap "Join":** This initiates the connection. The experience will not begin until at least two devices are connected.
 
-  - ✅ "Connecting to MongoDB..."
-  - ✅ "Successful connection..."
-  - ✅ "Waiting for connections..." 
+3. **Wait for synchronization:** While waiting for the second device, the app displays a loading screen *(Loading players)* and drawing controls remain disabled. Once the second device joins:
 
-## ❓ Common Questions
+- The loading screen disappears
+
+- A new *Start Drawing* button appears
+
+### 3. Start drawing
+Before drawing, ensure your device has completed spatial mapping:
+
+- You'll see a circular cursor appearing on detected planes
+
+- Small anchor points will overlay on recognized surfaces
+
+- Only when these visual indicators appear, tap "Start Drawing" to begin
+
+💡 **Tip:** Spatial mapping is dynamic. As you walk around, new anchor points will continuously register, improving spatial awareness and drawing accuracy across the environment.
+
+### 4. Draw and Collaborate
+- Choose colors from the palette in your app
+- Draw in the air - strokes appear when you finish; all connected devices see your drawings in real time
+- Walk around - drawings remain anchored to their physical locations as you move
+
+### 5. Verification
+To confirm devices are properly connected:
+
+- Check the server terminal logs for messages like:
+
+  - "Connecting to MongoDB..."
+  - "Successful connection..."
+  - "Waiting for connections..." 
+
+## Common Questions
 **Q: Why do devices need to be close together?**
 
 A: Devices need to be close to share the same AR space and use a common reference point from the starting position for accurate synchronization
@@ -126,7 +131,7 @@ A: Currently Android-only (ARCore requirement), but iOS support could be added.
 
 **Q: How many users can join simultaneously?**
 
-A. The system supports theoretically unlimited connections, but practical performance depends on:
+A. The system was tested with 5 simultaneous connections, but practical performance depends on:
 - The PC specifications (CPU/RAM)
 - Network conditions (latency and stability)
 - Drawing complexity (size/detail of shared AR content)
