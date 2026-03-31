@@ -22,19 +22,19 @@ CollabAR/
 └── README.md   # This documentation file
 ```
 
-## Setting workspace
+## Setting Workspace
 Before proceeding with the setup steps below, ensure you have the following tools **installed and ready** on your system. While newer versions may work, we recommend using the exact version specified to ensure full compatibility. If you choose a different version, please verify it doesn't introduce breaking changes.
 
-**Computer**: Windows/Mac/Linux with:
-  - Node.js v22.12.0 ([Installation guide](https://nodejs.org/en/about/previous-releases))
-  - MongoDB Community Edition 8.0.4 ([Installation guide](https://www.mongodb.com/docs/manual/installation/))
+**Computer**: *Windows**/Mac/Linux with:
+  - Node.js v24.14.1 ([Installation guide](https://nodejs.org/en/about/previous-releases))
+  - MongoDB Community Edition v8.2.6 ([Installation guide](https://www.mongodb.com/try/download/community))
   - Git ([Installation guide](https://git-scm.com/))
 
 **Phones**: 2+ Android devices with:
   - ARCore support ([Compatibility list](https://developers.google.com/ar/devices))
   - Developer mode enabled ([Developer mode](https://developer.android.com/studio/debug/dev-options))
 
-**Note:** All setup instructions and commands in this guide were tested in Windows 11 (25H2) using Command Prompt (cmd). If you're using another operating system or shell, please adapt the commands accordingly.
+**Note:*** All setup instructions and commands in this guide were tested in Windows 11 (25H2) using Command Prompt (cmd). If you're using another operating system or shell, please adapt the commands accordingly.
 
 ### Step 1: Get the Code
 **Clone the repository** as:
@@ -42,12 +42,12 @@ Before proceeding with the setup steps below, ensure you have the following tool
   git clone https://github.com/MurilloLog/CollabAR.git
   ```
 
-**If you prefer downloading the project as a ZIP file:** Extract the contents and verify the folder structure matches the Project Structure shown above. Ensure you have a folder named CollabAR/ containing the App/, Assets/, Server/, and README.md files directly inside-not nested within an additional parent folder.
+**If you prefer downloading the project as a ZIP file:** Extract the contents and verify the folder structure matches the [Project structure](#project-structure) shown above.
 
 ### Step 2: Launch the Server
 Before starting the server, ensure you have properly [configured it](./Server/README.md) and have the [applications ready](./App/README.md) on your devices.
 
-1. **Open two Command Promts** and navigate both to the `Server/` folder:
+1. **Open two Command Prompts** and navigate both to the `Server/` folder:
   ```bash
   cd CollabAR
   cd Server
@@ -57,24 +57,20 @@ Before starting the server, ensure you have properly [configured it](./Server/RE
    ```bash
    mongod
    ```
-  And make sure avoiding to close the command promt. You can verify MongoDB service is working when you receive the log message: *[initandlisten] Waiting for connections*.
+  And make sure avoiding to close the command prompt. You can verify MongoDB service is working when you receive the log message: ```"ctx":"initandlisten","msg":"mongod startup complete"```.
 
 3. **In the second Terminal (Application-Node.js)** start the server as:
 ```bash
 npm start
 ```
-
-Look for the message: *"Wating for connections..."* to check that the server app is running without errors.
+And look for the message: ```"Wating for connections..."``` to check that the server app is running without errors.
 
 ⚠️ **Important Notes**:
 
 - Do not close either terminal window while using the application.
-
-- Closing the first terminal *(mongod)* will shut down the database.
-
-- Closing the second terminal *(npm start)* will stop the server.
-
-- To stop the servers safely: Press *Ctrl + C* in each terminal to terminate processes gracefully.
+- Closing the first terminal ```mongod``` will shut down the database.
+- Closing the second terminal ```npm start``` will stop the server.
+- To stop the servers safely: Press ```Ctrl + C``` in each terminal to terminate processes gracefully.
 
 ## Using the App
 
