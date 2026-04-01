@@ -1,4 +1,4 @@
-# 🛠️ Unity Setup Guide for Project Installation
+# Unity Setup Guide for Project Installation
 
 ## 1. System Requirements
 - **Operating System**: Windows 10/11 or macOS 10.14+
@@ -24,7 +24,7 @@
    <img src="../Assets/Img06_UnityArchive.png" width=75%>
    
 2. **Installation Setup**:
-   - In Unity Hub's installation window click _"Install"_ (⚠️ May take 30+ minutes)
+   - In Unity Hub's installation window click _"Install"_ (May take 30+ minutes)
 
 ## 4. Add Android Modules (Required)
 1. **In Unity Hub**:
@@ -36,9 +36,9 @@
 
 2. **Select Android Components**:
    Check **all**:
-   - ✔️ Android Build Support
-   - ✔️ Android SDK & NDK Tools
-   - ✔️ OpenJDK
+   - Android Build Support
+   - OpenJDK
+   - Android SDK & NDK Tools
 
 <img src="../Assets/Img02_AndroidSDK.png" width=75%>
 
@@ -47,32 +47,28 @@
    - Wait for progress bar to complete
 
 ## 5. Open the Project
-1. **Preparation**:
-   - Download full project (Git repository)
-   - Extract to path **without spaces/special characters** (e.g., `C:\CollabAR\`)
-
-2. **In Unity Hub**:
+1. **In Unity Hub**:
    - Go to _"Projects"_ tab
    - Click _"Open" → "Add project from disk"_
    - Navigate to project `/CollabAR/App` folder (containing `Assets` and `ProjectSettings`)
-   - Double-click to open (first launch takes 2-5 minutes)
+   - Double-click to open (first launch takes 2-15 minutes)
 
 <img src="../Assets/Img03_OpenProject.png" width=75%>
 
 ## 6. Project Structure
-- `Assets/` (All important content here)
-  - 📁 `ExtensionAssets/`: ARCore setting files
-  - 📁 `Icons/` - `Materials/`: UI graphics
-  - 📁 `Prefabs/`: Reusable GameObjects
-  - 📁 `Scenes/`: UI screens (`Linker.unity` is the main scene)
-  - 📁 `Scripts/`: C# code (edits via Visual Studio)
-- `Packages/` (⚠️ Do not modify - auto-managed dependencies)
+- 📁 `Assets/` (All important content here)
+  - `ExtensionAssets/`: ARCore setting files
+  - `Icons/` - `Materials/`: UI graphics
+  - `Prefabs/`: Reusable GameObjects
+  - `Scenes/`: UI screens (`Linker.unity` is the main scene)
+  - `Scripts/`: C# code (edits via Visual Studio)
+- `Packages/` (Do not modify - auto-managed dependencies)
 
 <img src="../Assets/Img04_AssetsFolder.png" width=75%>
 
 ## 7. Build for Android (Step-by-Step)
 ### Requirements:
-- 📱 Android phone with:
+- Android phone with:
   - Version 8.0 or newer
   - Developer mode enabled
   - USB debugging turned on
@@ -90,12 +86,12 @@
 3. **Build & Run**:
    - Click `Build And Run` button
    - Name your `.apk` file (e.g., `CollabAR_v1.apk`)
-   - Wait 3-10 minutes (first build is slower)
+   - Wait 5-30 minutes (first build is slower)
    - App will auto-install on your phone
 
 <img src="../Assets/Img05_BuildSettings.png" width=75%>
 
-## 🆘 Troubleshooting Common Issues
+## Troubleshooting Common Issues
 - **SDK Errors**: Verify all Android modules installed
 - **Project Won't Load**: Restart Unity Hub, check project path
 - **Build Fails**: Confirm all scenes are in _"Scenes In Build"_
