@@ -1,7 +1,7 @@
 # A Framework for Collaborative Augmented Reality Applications | I3D 2025
 
 <div align="center">
-  <img src="./Assets/Fig_teaser.png" alt="Two users collaborating on AR drawing" width="600">
+  <img src="./Assets/Fig_teaser.png" alt="Two users collaborating on AR drawing" width="700">
   <p><em>Figure: Real-time AR drawing synchronization between two mobile devices using our framework</em></p>
 </div>
 
@@ -15,7 +15,7 @@ Perfect for:
 
 ## Project Structure
 ```
-CollabAR/ 
+📁 CollabAR/ 
 ├── App/        # Includes the mobile application implementation that connects to and interacts with the server framework
 ├── Assets/     # Images and resources used in documentation
 ├── Server/     # Contains the complete architecture and technical configuration for the local server, including all necessary components and operational processes
@@ -34,7 +34,7 @@ Before proceeding with the setup steps below, ensure you have the following tool
   - ARCore support ([Compatibility list](https://developers.google.com/ar/devices))
   - Developer mode enabled ([Developer mode](https://developer.android.com/studio/debug/dev-options))
 
-**Note:*** All setup instructions and commands in this guide were tested in Windows 11 (25H2) using Command Prompt (cmd). If you're using another operating system or shell, please adapt the commands accordingly.
+**Note:** All setup instructions and commands in this guide were tested in Windows 11 (25H2) using Command Prompt (cmd). If you're using another operating system or shell, please adapt the commands accordingly.
 
 ### Step 1: Get the Code
 **Clone the repository** as:
@@ -77,6 +77,9 @@ And look for the message: ```"Wating for connections..."``` to check that the se
 ### 1. Prepare Devices
 **Initial Positioning:** Before launching the app, place all devices side by side, pointing their cameras toward the same flat surface (table or floor). This initial alignment is critical. Any offset at the start will cause spatial synchronization mismatches between devices throughout the entire experience.
 
+<div align="center">
+  <img src="./Assets/Spatial_sync.gif" alt="A device mapping its real space" width="500">
+</div>
 ⚠️ **Important:** All devices must be connected to the same Wi-Fi network to communicate with the server.
 
 ### 2. Connect to Server
@@ -106,6 +109,10 @@ Before drawing, ensure your device has completed spatial mapping:
 - Choose colors from the palette in your app
 - Draw in the air - strokes appear when you finish; all connected devices see your drawings in real time
 - Walk around - drawings remain anchored to their physical locations as you move
+
+<div align="center">
+  <img src="./Assets/Video_teaser.gif" alt="Two users collaborating on AR drawing" width="500">
+</div>
 
 ### 5. Verification
 To confirm devices are properly connected:
