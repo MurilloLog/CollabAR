@@ -80,11 +80,10 @@ And look for the message: ```"Wating for connections..."``` to check that the se
 <div align="center">
   <img src="./Assets/Spatial_sync.gif" alt="A device mapping its real space" width="500">
 </div>
-⚠️ **Important:** All devices must be connected to the same Wi-Fi network to communicate with the server.
 
 ### 2. Connect to Server
 1. **Enter the server address:** Input the IP address of the computer running the server (the machine where you executed *npm start*). The default port is 8080. 
-**Note:** These parameters can be modified or automated-refer to [Server.md](./Server/README.md) for configuration details.
+**Note:** These parameters can be modified or automated-refer to [Server.md](./Server/README.md#configuration) for configuration details.
 
 2. **Tap "Join":** This initiates the connection. The experience will not begin until at least two devices are connected.
 
@@ -92,16 +91,18 @@ And look for the message: ```"Wating for connections..."``` to check that the se
 
 - The loading screen disappears
 
-- A new *Start Drawing* button appears
+- A new *Drawing* button appears
+
+⚠️ **Important:** All devices must be connected to the same Wi-Fi network to communicate with the server.
 
 ### 3. Start drawing
-Before drawing, ensure your device has completed spatial mapping:
+Ensure your device has completed spatial mapping:
 
 - You'll see a circular cursor appearing on detected planes
 
 - Small anchor points will overlay on recognized surfaces
 
-- Only when these visual indicators appear, tap "Start Drawing" to begin
+- Only when these visual indicators appear, tap "Draw" button to begin
 
 💡 **Tip:** Spatial mapping is dynamic. As you walk around, new anchor points will continuously register, improving spatial awareness and drawing accuracy across the environment.
 
@@ -124,13 +125,13 @@ To confirm devices are properly connected:
   - "Waiting for connections..." 
 
 ## Common Questions
-**Q: Why do devices need to be close together?**
+**Q: Why do devices need to be close together at the begining?**
 
 A: Devices need to be close to share the same AR space and use a common reference point from the starting position for accurate synchronization
 
 **Q: Can I use iPhones?**
 
-A: Currently Android-only (ARCore requirement), but iOS support could be added.
+A: Currently Android-only (ARCore requirement), but iOS support could be added
 
 **Q: How many users can join simultaneously?**
 
